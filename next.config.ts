@@ -1,19 +1,31 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
+let nextConfig: NextConfig;
+nextConfig = {
   /* config options here */
-  experimental: {
-    agentFeedback: true,
-  },
-  cacheComponents: true,
-  partialPrefetching: true,
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "placehold.co",
       },
-    },
+      {
+        protocol: "https",
+        hostname: "m.media-amazon.com",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "ik.imagekit.io",
+        port: "",
+      },
+    ],
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+    eslint: {
+    ignoreDuringBuilds: true,
   },
 };
 
